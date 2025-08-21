@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>DADLI | منوی آنلاین</title>
+  <meta name="theme-color" content="#f2b400" />
+  <style>
+    /* ــــــــ پایه ــــــــ */
+    :root{ --bg:#f6ecda; --paper:#fffaf0; --ink:#222; --muted:#666; --brand:#f2b400; --coal:#1f1f1f; --line:#00000014; }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Vazirmatn,system-ui,-apple-system,Segoe UI,Roboto,"Noto Naskh Arabic",sans-serif}
+    a{text-decoration:none;color:inherit}
+    .app{max-width:900px;margin:auto}
+
+    /* هدر و تب‌ها */
+    header{position:sticky;top:0;z-index:20;background:linear-gradient(180deg,#fff,rgba(255,255,255,.7));backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--line)}
+    .bar{display:flex;align-items:center;gap:.75rem;padding:.9rem 1rem}
+    .logo{display:flex;align-items:center;gap:.6rem;font-weight:900}
+    .logo .dot{width:10px;height:10px;border-radius:50%;background:var(--brand)}
+    .brand{font-size:1.2rem;letter-spacing:.5px}
+
+    .tabs{display:flex;gap:.5rem;overflow:auto;padding:.5rem 1rem 1rem;margin:0;scroll-snap-type:x mandatory}
+    .tab{scroll-snap-align:start;white-space:nowrap;border:1px solid var(--line);padding:.55rem .9rem;border-radius:999px;background:#fff;box-shadow:0 1px 0 rgba(0,0,0,.04)}
+    .tab.active{background:var(--brand);border-color:#000;font-weight:800}
+
+    /* بنر */
+    .hero{margin:1rem 1rem 0;background:radial-gradient(80% 120% at 80% 0%, #ffc83d 0%, #f2b400 30%, #ffdd74 55%, #ffe9a9 70%, #fff 100%);border-radius:18px;padding:1.2rem;border:1px dashed #00000022;position:relative;overflow:hidden}
+    .hero h1{margin:0 0 .3rem;font-size:1.35rem}
+    .hero p{margin:.25rem 0 0;color:#333}
+    .hero::after{content:"";position:absolute;inset:-40px -60px auto auto;width:240px;height:240px;opacity:.15;background:
+      radial-gradient(circle at 60% 40%, #000 35%, transparent 36%),
+      radial-gradient(circle at 40% 60%, #000 35%, transparent 36%),
+      radial-gradient(closest-side, #000 0 99%, transparent 100%);
+      filter:blur(2px);border-radius:50%}
+
+    /* جستجو */
+    .search{margin:.8rem 1rem}
+    .search input{width:100%;padding:.9rem 1rem;border:1px solid var(--line);border-radius:12px;background:#fff;font-size:1rem}
+
+    /* سکشن‌ها */
+    section{scroll-margin-top:112px}
+    .section-title{display:flex;align-items:center;gap:.6rem;margin:1.25rem 1rem .5rem}
+    .ribbon{background:var(--brand);padding:.5rem .8rem;border-radius:10px;font-weight:900}
+
+    /* کارت آیتم */
+    .grid{display:grid;grid-template-columns:1fr;gap:.85rem;margin:.6rem 1rem 1.6rem}
+    .card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:.9rem;display:flex;gap:.9rem;align-items:flex-start;box-shadow:0 1px 0 rgba(0,0,0,.04)}
+    .name{font-weight:900}
+    .muted{color:var(--muted);font-size:.92rem}
+    .price{margin-inline-start:auto;border:1px dashed var(--coal);border-radius:9px;padding:.2rem .55rem;font-variant-numeric:tabular-nums;background:#fff;cursor:pointer}
+
+    .footer{padding:2rem 1rem 5rem;color:#666;text-align:center}
+    @media(min-width:640px){.grid{grid-template-columns:1fr 1fr}}
+    @media(min-width:980px){header{top:8px;border-radius:16px;max-width:900px;margin:8px auto 0}}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div class="bar">
+        <div class="logo"><span class="dot"></span><span class="brand">DADLI</span></div>
+        <div style="margin-inline-start:auto;font-weight:700">منوی آنلاین</div>
+      </div>
+      <nav class="tabs" id="tabs">
+        <a class="tab active" href="#sandwich">ساندویچ</a>
+        <a class="tab" href="#pizza">فر/پیراشکی</a>
+        <a class="tab" href="#special">ویژه</a>
+        <a class="tab" href="#starter">استارتر</a>
+        <a class="tab" href="#cafe">کافی</a>
+        <a class="tab" href="#shakes">شیک/دسر</a>
+        <a class="tab" href="#beverages">نوشیدنی‌ها</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <h1>به دادلی خوش آمدید</h1>
+      <p>منوی آنلاین با جستجوی سریع و ویرایش قیمت با یک کلیک.</p>
+    </div>
+
+    <div class="search">
+      <input id="q" placeholder="جستجو در منو (مثلاً: استیک، لته، قارچ)..." />
+    </div>
+
+    <!-- ساندویچ‌ها -->
+    <section id="sandwich">
+      <div class="section-title"><div class="ribbon">SANDWICH</div><div>ساندویچ‌ها</div></div>
+      <div class="grid" data-section="ساندویچ">
+        <article class="card" data-name="ویژه دادلی"><div><div class="name">ویژه دادلی</div><div class="muted">سینه مرغ، رست‌بیف، قارچ، پنیر پیتزا، دورچین</div></div><div class="price">—</div></article>
+        <article class="card" data-name="مخصوص دادلی"><div><div class="name">مخصوص دادلی</div><div class="muted">کوبیده بلوپر، ژامبون مرغ، قارچ، پنیر پیتزا، دورچین</div></div><div class="price">—</div></article>
+        <article class="card" data-name="رست بیف"><div><div class="name">رست بیف</div><div class="muted">گوشت گوساله، قارچ، پنیر پیتزا</div></div><div class="price">—</div></article>
+        <article class="card" data-name="مرغ ویژه"><div><div class="name">مرغ ویژه</div><div class="muted">سینه مرغ مزه‌دار، قارچ، پنیر پیتزا</div></div><div class="price">—</div></article>
+        <article class="card" data-name="هات داگ ویژه"><div><div class="name">هات‌داگ ویژه</div><div class="muted">هات‌داگ، قارچ، پنیر پیتزا</div></div><div class="price">—</div></article>
+        <article class="card" data-name="ژامبون تنوری"><div><div class="name">ژامبون تنوری</div><div class="muted">ژامبون مرغ، قارچ، پنیر پیتزا</div></div><div class="price">—</div></article>
+        <article class="card" data-name="میکس برگر"><div><div class="name">میکس برگر</div><div class="muted">برگر دستی + سینه مرغ مزه‌دار + پنیر</div></div><div class="price">—</div></article>
+        <article class="card" data-name="چیزبرگر با قارچ"><div><div class="name">چیزبرگر با قارچ</div><div class="muted">برگر دستی، قارچ، پنیر گودا</div></div><div class="price">—</div></article>
+        <article class="card" data-name="قارچ برگر"><div><div class="name">قارچ‌برگر</div><div class="muted">برگر دستی، قارچ</div></div><div class="price">—</div></article>
+        <article class="card" data-name="چیزبرگر"><div><div class="name">چیزبرگر</div><div class="muted">برگر دستی، پنیر گودا</div></div><div class="price">—</div></article>
+      </div>
+    </section>
+
+    <!-- پیراشکی/فر -->
+    <section id="pizza">
+      <div class="section-title"><div class="ribbon">SANDWICH</div><div>ساندویچ‌های فر و پیراشکی</div></div>
+      <div class="grid" data-section="فر">
+        <article class="card" data-name="میکس"><div><div class="name">میکس</div><div class="muted">خمیر آمریکایی، مارینارا، گوشت، ژامبون مرغ، سینه مرغ مزه‌دار، قارچ، پنیر پیتزا</div></div><div class="price">—</div></article>
+        <article class="card" data-name="بیف استراگانف"><div><div class="name">بیف استراگانف</div><div class="muted">خمیر مخصوص، سس آلفردو، فیله گوساله، قارچ، پیاز</div></div><div class="price">—</div></article>
+        <article class="card" data-name="سزار"><div><div class="name">سزار</div><div class="muted">سس سزار، سینه مرغ مزه‌دار، قارچ، پنیر</div></div><div class="price">—</div></article>
+        <article class="card" data-name="سیر و استیک"><div><div class="name">سیر و استیک</div><div class="muted">سس سیر، فیله گوساله، قارچ، پنیر</div></div><div class="price">—</div></article>
+        <article class="card" data-name="رست بیف (فر)"><div><div class="name">رست بیف (فر)</div><div class="muted">مارینارا، رست بیف، قارچ، پنیر</div></div><div class="price">—</div></article>
+        <article class="card" data-name="گوشت و قارچ"><div><div class="name">گوشت و قارچ</div><div class="muted">مارینارا، گوشت، قارچ، پنیر پیتزا</div></div><div class="price">—</div></article>
+        <article class="card" data-name="مرغ و قارچ"><div><div class="name">مرغ و قارچ</div><div class="muted">مارینارا، سینه مرغ مزه‌دار، قارچ، پنیر پیتزا</div></div><div class="price">—</div></article>
+        <article class="card" data-name="چهار فصل"><div><div class="name">چهار فصل</div><div class="muted">گوشت، ژامبون، مرغ، قارچ، پنیر</div></div><div class="price">—</div></article>
+        <article class="card" data-name="استاف"><div><div class="name">استاف</div><div class="muted">هات‌داگ داخل کراست، ژامبون مرغ، قارچ، پنیر</div></div><div class="price">—</div></article>
+        <article class="card" data-name="مخلوط"><div><div class="name">مخلوط</div><div class="muted">ژامبون مرغ، هات‌داگ، قارچ، پنیر</div></div><div class="price">—</div></article>
+        <article class="card" data-name="پیروتنی"><div><div class="name">پیروتنی</div><div class="muted">مارینارا، پنیر پیتزا</div></div><div class="price">—</div></article>
+      </div>
+    </section>
+
+    <!-- ویژه -->
+    <section id="special">
+      <div class="section-title"><div class="ribbon">OUR SPECIAL</div><div>غذاهای ویژه</div></div>
+      <div class="grid" data-section="ویژه">
+        <article class="card" data-name="لازانیای گوشت و قارچ"><div><div class="name">لازانیای گوشت و قارچ</div><div class="muted">گوشت، قارچ، سس بشامل، پنیر پیتزا</div></div><div class="price">—</div></article>
+        <article class="card" data-name="بیف استراگانف"><div><div class="name">بیف استراگانف</div><div class="muted">فیله گوساله، قارچ، سس آلفردو</div></div><div class="price">—</div></article>
+        <article class="card" data-name="چیکن استراگانف"><div><div class="name">چیکن استراگانف</div><div class="muted">سینه مرغ مزه‌دار، قارچ، سس آلفردو</div></div><div class="price">—</div></article>
+        <article class="card" data-name="رولت هات داگ"><div><div class="name">رولت هات‌داگ</div><div class="muted">هات‌داگ، کاهو، سس مخصوص</div></div><div class="price">—</div></article>
+        <article class="card" data-name="اسپیشال"><div><div class="name">اسپیشال</div><div class="muted">گوشت گوساله، قارچ، پنیر پیتزا، سس مخصوص</div></div><div class="price">—</div></article>
+        <article class="card" data-name="برگر یونانی"><div><div class="name">برگر یونانی</div><div class="muted">برگر دستی ۱۵۰گرمی، قارچ، پنیر پیتزا، سس مخصوص</div></div><div class="price">—</div></article>
+        <article class="card" data-name="استیک گوشت"><div><div class="name">استیک گوشت</div><div class="muted">فیله گوساله، سس قارچ</div></div><div class="price">—</div></article>
+        <article class="card" data-name="استیک مرغ"><div><div class="name">استیک مرغ</div><div class="muted">فیله مرغ، سس قارچ</div></div><div class="price">—</div></article>
+      </div>
+    </section>
+
+    <!-- استارتر -->
+    <section id="starter">
+      <div class="section-title"><div class="ribbon">STARTER</div><div>پیش‌غذا</div></div>
+      <div class="grid" data-section="استارتر">
+        <article class="card" data-name="سالاد سزار"><div><div class="name">سالاد سزار</div><div class="muted">کاهو، فیله مرغ، نان تست مزه‌دار، سس سزار، پارمسان</div></div><div class="price">—</div></article>
+        <article class="card" data-name="پاستا آلفردو"><div><div class="name">پاستا آلفردو</div><div class="muted">پنه، فیله مرغ، سس آلفردو، پارمسان</div></div><div class="price">—</div></article>
+        <article class="card" data-name="پاستا پستو"><div><div class="name">پاستا پستو</div><div class="muted">پنه، فیله مرغ، سس پستو، پارمسان</div></div><div class="price">—</div></article>
+        <article class="card" data-name="سیب سرخ شده"><div><div class="name">سیب سرخ‌شده</div><div class="muted">سیب‌زمینی تازه</div></div><div class="price">—</div></article>
+        <article class="card" data-name="سیب با سس قارچ و پنیر"><div><div class="name">سیب با سس قارچ و پنیر</div></div><div class="price">—</div></article>
+        <article class="card" data-name="سیب مخصوص"><div><div class="name">سیب مخصوص</div><div class="muted">سیب سرخ‌شده، ژامبون، مرغ، قارچ، پنیر پیتزا</div></div><div class="price">—</div></article>
+        <article class="card" data-name="نان سیر پیتزایی"><div><div class="name">نان سیر پیتزایی</div><div class="muted">خمیر پیتزا، سس سیر، پنیر پیتزا</div></div><div class="price">—</div></article>
+      </div>
+    </section>
+
+    <!-- کافی -->
+    <section id="cafe">
+      <div class="section-title"><div class="ribbon">CAFE</div><div>قهوه و نوشیدنی‌های گرم</div></div>
+      <div class="grid" data-section="کافی">
+        <article class="card" data-name="اسپرسو ۱۰۰ عربیکا"><div><div class="name">اسپرسو ۱۰۰٪ عربیکا</div></div><div class="price">—</div></article>
+        <article class="card" data-name="اسپرسو ۷۰ عربیکا"><div><div class="name">اسپرسو ۷۰٪ عربیکا</div></div><div class="price">—</div></article>
+        <article class="card" data-name="اسپرسو ۵۰"><div><div class="name">اسپرسو ۵۰٪</div></div><div class="price">—</div></article>
+        <article class="card" data-name="ماکیاتو"><div><div class="name">اسپرسو ماکیاتو</div></div><div class="price">—</div></article>
+        <article class="card" data-name="امریکانو"><div><div class="name">امریکانو</div></div><div class="price">—</div></article>
+        <article class="card" data-name="لته"><div><div class="name">لته</div></div><div class="price">—</div></article>
+        <article class="card" data-name="کاپوچینو"><div><div class="name">کاپوچینو</div></div><div class="price">—</div></article>
+        <article class="card" data-name="ماکیاتو لته"><div><div class="name">ماکیاتو لته</div></div><div class="price">—</div></article>
+        <article class="card" data-name="موکاچینو"><div><div class="name">موکاچینو</div></div><div class="price">—</div></article>
+        <article class="card" data-name="قهوه ترک"><div><div class="name">قهوه ترک</div></div><div class="price">—</div></article>
+        <article class="card" data-name="فرنج پرس"><div><div class="name">فرِنج پرس</div></div><div class="price">—</div></article>
+      </div>
+    </section>
+
+    <!-- شیک و دسر -->
+    <section id="shakes">
+      <div class="section-title"><div class="ribbon">SHAKES & DESSERTS</div><div>شیک‌ها و دسر</div></div>
+      <div class="grid" data-section="شیک">
+        <article class="card" data-name="شیک شکلات"><div><div class="name">شیک شکلات</div></div><div class="price">—</div></article>
+        <article class="card" data-name="شیک بادام زمینی"><div><div class="name">شیک بادام زمینی</div></div><div class="price">—</div></article>
+        <article class="card" data-name="شیک اسپرسو"><div><div class="name">شیک اسپرسو</div></div><div class="price">—</div></article>
+        <article class="card" data-name="شیک موز شکلات"><div><div class="name">شیک موز شکلات</div></div><div class="price">—</div></article>
+        <article class="card" data-name="شیک توت فرنگی شکلات"><div><div class="name">شیک توت‌فرنگی شکلات</div></div><div class="price">—</div></article>
+        <article class="card" data-name="شیک شاتوت"><div><div class="name">شیک شاتوت</div></div><div class="price">—</div></article>
+        <article class="card" data-name="شیک انبه"><div><div class="name">شیک انبه</div></div><div class="price">—</div></article>
+        <article class="card" data-name="شکلات گلاسه"><div><div class="name">شکلات گلاسه</div></div><div class="price">—</div></article>
+        <article class="card" data-name="کافه گلاسه"><div><div class="name">کافه گلاسه</div></div><div class="price">—</div></article>
+        <article class="card" data-name="بستنی شکلاتی"><div><div class="name">بستنی شکلاتی</div></div><div class="price">—</div></article>
+        <article class="card" data-name="بستنی میوه‌ای"><div><div class="name">بستنی میوه‌ای</div></div><div class="price">—</div></article>
+        <article class="card" data-name="کیک روز"><div><div class="name">کیک روز</div></div><div class="price">—</div></article>
+        <article class="card" data-name="چیزکیک"><div><div class="name">چیزکیک</div></div><div class="price">—</div></article>
+        <article class="card" data-name="کوکی روز"><div><div class="name">کوکی روز</div></div><div class="price">—</div></article>
+        <article class="card" data-name="کروسان"><div><div class="name">کروسان (با شکلات صبحانه و موز)</div></div><div class="price">—</div></article>
+        <article class="card" data-name="باقلوا"><div><div class="name">باقلوا</div></div><div class="price">—</div></article>
+      </div>
+    </section>
+
+    <!-- نوشیدنی‌ها -->
+    <section id="beverages">
+      <div class="section-title"><div class="ribbon">BEVERAGES & MOCKTAILS</div><div>نوشیدنی‌ها</div></div>
+      <div class="grid" data-section="نوشیدنی">
+        <article class="card" data-name="چای کرک"><div><div class="name">چای کَرَک</div></div><div class="price">—</div></article>
+        <article class="card" data-name="چای ماسالا"><div><div class="name">چای ماسالا</div></div><div class="price">—</div></article>
+        <article class="card" data-name="هات چاکلت"><div><div class="name">هات چاکلت</div></div><div class="price">—</div></article>
+        <article class="card" data-name="وایت چاکلت"><div><div class="name">وایت چاکلت</div></div><div class="price">—</div></article>
+        <article class="card" data-name="آفوگاتو"><div><div class="name">آفوگاتو</div></div><div class="price">—</div></article>
+        <article class="card" data-name="چاکلت گاتو"><div><div class="name">چاکلت گاتو</div></div><div class="price">—</div></article>
+        <article class="card" data-name="دمنوش بهشت"><div><div class="name">دمنوش بهشت</div></div><div class="price">—</div></article>
+        <article class="card" data-name="گل گاوزبان"><div><div class="name">گل گاوزبان</div></div><div class="price">—</div></article>
+        <article class="card" data-name="به لیمو بهار نارنج"><div><div class="name">به‌لیمو / بهارنارنج</div></div><div class="price">—</div></article>
+        <article class="card" data-name="چای سبز"><div><div class="name">چای سبز</div></div><div class="price">—</div></article>
+        <article class="card" data-name="چای ترش"><div><div class="name">چای ترش</div></div><div class="price">—</div></article>
+        <article class="card" data-name="چای سیاه"><div><div class="name">چای سیاه</div></div><div class="price">—</div></article>
+        <article class="card" data-name="چای باقلوا"><div><div class="name">چای باقلوا</div></div><div class="price">—</div></article>
+        <article class="card" data-name="لیموناد"><div><div class="name">لیموناد</div></div><div class="price">—</div></article>
+        <article class="card" data-name="موهیتو"><div><div class="name">موهیتو</div></div><div class="price">—</div></article>
+        <article class="card" data-name="بلو موهیتو"><div><div class="name">بلو موهیتو</div></div><div class="price">—</div></article>
+        <article class="card" data-name="رد موهیتو"><div><div class="name">رد موهیتو</div></div><div class="price">—</div></article>
+      </div>
+    </section>
+
+    <div class="footer">
+      برای ویرایش قیمت روی تگ قیمت کلیک کنید و عدد وارد کنید. | © DADLI
+    </div>
+  </div>
+
+  <script>
+    // اسکرول نرم و هایلایت تب‌ها
+    const tabs=document.querySelectorAll('.tab');
+    tabs.forEach(t=>t.addEventListener('click',e=>{e.preventDefault();document.querySelector(t.getAttribute('href')).scrollIntoView({behavior:'smooth',block:'start'});}));
+    const sections=[...document.querySelectorAll('section')];
+    const io=new IntersectionObserver(es=>{const v=es.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];if(!v)return;const id='#'+v.target.id;tabs.forEach(t=>t.classList.toggle('active',t.getAttribute('href')===id))},{rootMargin:'-40% 0px -55% 0px',threshold:[0,.2,.4,.6,.8,1]});
+    sections.forEach(s=>io.observe(s));
+
+    // جستجو
+    const q=document.getElementById('q');
+    q.addEventListener('input',()=>{const value=q.value.trim();const cards=document.querySelectorAll('.card');if(!value){cards.forEach(c=>c.style.display='grid');return;}const f=value.toLowerCase();cards.forEach(c=>{const name=(c.dataset.name||'')+' '+(c.parentElement?.dataset.section||'');c.style.display=name.toLowerCase().includes(f)?'grid':'none';});});
+
+    // ویرایش قیمت با کلیک
+    document.querySelectorAll('.price').forEach(el=>{el.addEventListener('click',()=>{const cur=el.textContent.replace(/[^\d]/g,'');const val=prompt('قیمت (تومان):',cur||'');if(val===null)return;el.textContent=val?new Intl.NumberFormat('fa-IR').format(+val)+' تومان':'—';});});
+  </script>
+</body>
+</html>
